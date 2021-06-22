@@ -1,9 +1,17 @@
+#container{
+    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: black solid;
+    box-sizing: border-box;
+    width: 760px;
+}
+
 .row{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height : 100vh;
- }
+}
 
 /*.color-square{
     background: black;
