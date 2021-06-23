@@ -9,3 +9,24 @@
     display: flex;
     border: black solid;
 }
+
+#button-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    margin-bottom: 18rem;
+}
+
+button{
+    margin: 10px;
+    font-size: medium;
+    border: darkblue solid;
+    border-radius: 30px;
+    height: 2rem;
+    width: 7rem;
+    opacity: 70%;
+}
+
+button:hover{
+    opacity: 100%;
+}
