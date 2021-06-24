@@ -1,6 +1,6 @@
 const grid = document.querySelector('#grid');
 const btns = document.querySelectorAll('button');
-const maxDim = 700;
+const maxDim = 650;
 let gridNum = 50;
 let select = '';
 let color = 255;
