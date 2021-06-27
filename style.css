@@ -1,6 +1,12 @@
+body{
+    margin: 0;
+}
+
 h1{
     margin-bottom: 10px;
     height: 1em;
+    font-size: 4em;
+    color: rgb(191, 0, 0);
 }
 
 main{
@@ -8,16 +14,13 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: black;
     min-height: 100vh;
 }
 
 #grid{
     display: flex;
-    border: black solid;
-}
-
-.row{
-    background : white;
+    border: rgb(0, 0, 200) solid thick;
 }
 
 #button-wrapper{
@@ -27,11 +30,13 @@ main{
 button{
     margin: 5px 6px 11px 7px;
     font-size: medium;
-    border: darkblue solid;
+    border: rgb(0, 0, 200) solid thick;
     border-radius: 30px;
     height: 2rem;
     width: 5rem;
-    opacity: 70%;
+    opacity: 80%;
+    background: black;
+    color: red;
 }
 
 button:hover{
