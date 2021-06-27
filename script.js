@@ -47,14 +47,45 @@ function darken(){
     return `rgb(${color}, ${color}, ${color})`;
 }
 
+function getIn(){
+    let flag = false;
+    let userIn = '';
+
+    while(!flag){
+        userIn = prompt('Type a number between 1-70');
+        if(userIn > 70 || userIn == 0 || isNaN(+userIn)){
+            alert('Number not in range. Try again.');
+        }else{
+            flag = true;
+        }
+    }
+    return userIn;
+}
+
 function reset(){
-    window.location.reload();
+    const rows = document.querySelectorAll('.row');
+    const cols = document.querySelectorAll('.col');
+    rows.forEach(e => e.parentNode.removeChild(e));
+    cols.forEach(e => e.parentNode.removeChild(e));
+    createGrid(gridNum);
+}
+
+function changeSize(){
+    let newSize = getIn();
+    if(newSize === null) return null;
+    else {
+        gridNum = newSize;
+        reset();
+    }
 }
 
 createGrid(gridNum);
+
 btns.forEach(btn => btn.addEventListener('click', e => {
     if(e.target.id === 'color') select = 'clr';
     else if(e.target.id === 'darken') select = 'drk';
     else if(e.target.id === 'black') select = 'blk';
+    else if(e.target.id === 'size') changeSize();
     else reset();
 }));
+

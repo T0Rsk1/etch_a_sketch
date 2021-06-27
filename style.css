@@ -16,17 +16,21 @@ main{
     border: black solid;
 }
 
+.row{
+    background : white;
+}
+
 #button-wrapper{
     display: flex;
 }
 
 button{
-    margin: 10px;
+    margin: 5px 6px 11px 7px;
     font-size: medium;
     border: darkblue solid;
     border-radius: 30px;
     height: 2rem;
-    width: 6rem;
+    width: 5rem;
     opacity: 70%;
 }
 
