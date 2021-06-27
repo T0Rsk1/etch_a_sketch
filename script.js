@@ -1,7 +1,7 @@
 const grid = document.querySelector('#grid');
 const btns = document.querySelectorAll('button');
 const maxDim = 650;
-let gridNum = 50;
+let gridNum = 16;
 let select = '';
 let color = 255;
 let rev = false;
@@ -48,18 +48,13 @@ function darken(){
 }
 
 function getIn(){
-    let flag = false;
     let userIn = '';
-
-    while(!flag){
+    while(true){
         userIn = prompt('Type a number between 1-70');
-        if(userIn > 70 || userIn == 0 || isNaN(+userIn)){
+        if(userIn > 70 || userIn == 0 || isNaN(+userIn))
             alert('Number not in range. Try again.');
-        }else{
-            flag = true;
-        }
+        else return userIn;
     }
-    return userIn;
 }
 
 function reset(){
@@ -73,7 +68,7 @@ function reset(){
 function changeSize(){
     let newSize = getIn();
     if(newSize === null) return null;
-    else {
+    else{
         gridNum = newSize;
         reset();
     }
