@@ -15,6 +15,7 @@ function createGrid(x){
         grid.appendChild(col);
         for(let j=0;j<x;j++){
             let row = document.createElement('div');
+            row.classList.add('row');
             row.style.background = 'rgb(200, 200, 200)';
             row.style.height = dim + 'px';
             row.style.width = dim + 'px';
