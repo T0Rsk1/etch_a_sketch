@@ -27,6 +27,10 @@ main{
     display: flex;
 }
 
+.control{
+    opacity: 90%;
+}
+
 button{
     margin: 5px 6px 11px 7px;
     font-size: medium;
@@ -34,11 +38,15 @@ button{
     border-radius: 30px;
     height: 2rem;
     width: 5rem;
-    opacity: 80%;
+    opacity: 65%;
     background: black;
     color: red;
 }
 
 button:hover{
     opacity: 100%;
+}
+
+.light{
+    opacity: 90%;
 }

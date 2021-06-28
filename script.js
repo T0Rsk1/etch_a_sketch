@@ -1,9 +1,12 @@
 const grid = document.querySelector('#grid');
-const btns = document.querySelectorAll('button');
+const state = document.querySelectorAll('.state');
+const control = document.querySelectorAll('.control');
 const maxDim = 650;
+const maxNum = 100;
 let gridNum = 16;
 let select = '';
 let color = 255;
+let drk = 0.25;
 let rev = false;
 
 function createGrid(x){
@@ -50,16 +53,15 @@ function ld(){
 function darken(sqr){
     let rgb = sqr.substring(4, sqr.length-1).split(', ');
     for(let i=0;i<rgb.length;i++){
-        rgb[i] -= 20;    
+        rgb[i] -= rgb[i] * drk;    
     }
     return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 }
 
 function getIn(){
-    let userIn = '';
     while(true){
-        userIn = prompt('Type a number between 1-70');
-        if(userIn > 70 || userIn == 0 || isNaN(+userIn))
+        let userIn = prompt('Type a number between 1-' + maxNum);
+        if(userIn > maxNum || userIn == 0 || isNaN(+userIn))
             alert('Number not in range. Try again.');
         else return userIn;
     }
@@ -82,13 +84,29 @@ function changeSize(){
     }
 }
 
+function lightUp(btns, btn){
+    btns.forEach(btn => btn.classList.remove('light'));
+    btn.classList.add('light');
+}
+
 createGrid(gridNum);
 
-btns.forEach(btn => btn.addEventListener('click', e => {
-    if(e.target.id === 'color') select = 'clr';
-    else if(e.target.id === 'darken') select = 'drk';
-    else if(e.target.id === 'black') select = 'blk';
-    else if(e.target.id === 'size') changeSize();
-    else reset();
-}));
+state.forEach(btn => {
+    btn.addEventListener('click', e => {
+        lightUp(state, btn);
+        if(e.target.id === 'color') select = 'clr';
+        else if(e.target.id === 'darken') select = 'drk';
+        else select = 'blk';
+    });
+});
 
+control.forEach(btn => {
+    btn.addEventListener('click', e => {
+        if(e.target.id === 'size') changeSize();
+        else reset();
+    });
+});
+
+window.addEventListener('keydown', e => {
+    if(e.keyCode === 82) window.location.reload();
+});
