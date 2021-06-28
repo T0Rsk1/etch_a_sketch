@@ -3,6 +3,7 @@ const state = document.querySelectorAll('.state');
 const control = document.querySelectorAll('.control');
 const maxDim = 650;
 const maxNum = 100;
+const maxHex = 16777215;
 let gridNum = 16;
 let select = '';
 let color = 255;
@@ -31,11 +32,11 @@ function createGrid(x){
 function onHover(sel, sqr){
     if(sel === 'clr') sqr.style.background = randColor();
     else if(sel === 'drk') sqr.style.background = darken(sqr.style.background);
-    else sqr.style.background = 'rgb(0, 0, 0)'; 
+    else sqr.style.background = 'black'; 
 }
 
 function randColor(){
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    return '#' + Math.floor(Math.random() * maxHex).toString(16);
 }
 
 function ld(){
@@ -84,8 +85,8 @@ function changeSize(){
     }
 }
 
-function lightUp(btns, btn){
-    btns.forEach(btn => btn.classList.remove('light'));
+function lightUp(btn){
+    state.forEach(btn => btn.classList.remove('light'));
     btn.classList.add('light');
 }
 
@@ -93,7 +94,7 @@ createGrid(gridNum);
 
 state.forEach(btn => {
     btn.addEventListener('click', e => {
-        lightUp(state, btn);
+        lightUp(btn);
         if(e.target.id === 'color') select = 'clr';
         else if(e.target.id === 'darken') select = 'drk';
         else select = 'blk';
