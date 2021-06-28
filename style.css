@@ -3,9 +3,9 @@ body{
 }
 
 h1{
-    margin-bottom: 10px;
-    height: 1em;
-    font-size: 4em;
+    margin: 0.6rem;
+    height: 6rem;
+    font-size: 6rem;
     color: rgb(191, 0, 0);
 }
 
@@ -32,12 +32,12 @@ main{
 }
 
 button{
-    margin: 5px 6px 11px 7px;
-    font-size: medium;
+    margin: 0.3rem 0.4rem 0.8em 0.4rem;
+    font-size: 1.5rem;
     border: rgb(0, 0, 200) solid thick;
-    border-radius: 30px;
-    height: 2rem;
-    width: 5rem;
+    border-radius: 2rem;
+    height: 3rem;
+    width: 7.3rem;
     opacity: 65%;
     background: black;
     color: red;

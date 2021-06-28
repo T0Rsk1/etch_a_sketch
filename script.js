@@ -1,14 +1,13 @@
 const grid = document.querySelector('#grid');
 const state = document.querySelectorAll('.state');
 const control = document.querySelectorAll('.control');
-const maxDim = 650;
+const maxDim = 40;
 const maxNum = 100;
-const maxHex = 16777215;
 let gridNum = 16;
 let select = '';
-let color = 255;
 let drk = 0.25;
-let rev = false;
+//let color = 255;
+//let rev = false;
 
 function createGrid(x){
     const dim = maxDim/x;
@@ -21,8 +20,8 @@ function createGrid(x){
             let row = document.createElement('div');
             row.classList.add('row');
             row.style.background = 'rgb(200, 200, 200)';
-            row.style.height = dim + 'px';
-            row.style.width = dim + 'px';
+            row.style.height = dim + 'rem';
+            row.style.width = dim + 'rem';
             row.addEventListener('mouseover', () => onHover(select, row));
             col.appendChild(row);
         }
@@ -36,10 +35,10 @@ function onHover(sel, sqr){
 }
 
 function randColor(){
-    return '#' + Math.floor(Math.random() * maxHex).toString(16);
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
 
-function ld(){
+/*function ld(){
     if(!rev){
         color -= 25.5;
         if(color === 0) rev = true;
@@ -49,7 +48,7 @@ function ld(){
     }
 
     return `rgb(${color}, ${color}, ${color})`;
-}
+}*/
 
 function darken(sqr){
     let rgb = sqr.substring(4, sqr.length-1).split(', ');
